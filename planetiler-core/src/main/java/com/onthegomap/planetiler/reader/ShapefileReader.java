@@ -53,7 +53,7 @@ public class ShapefileReader extends SimpleReader<SimpleFeature> {
       CoordinateReferenceSystem src =
         sourceProjection == null ? source.getSchema().getCoordinateReferenceSystem() : CRS.decode(sourceProjection);
       CoordinateReferenceSystem dest = CRS.decode("EPSG:4326", true);
-      transformToLatLon = CRS.findMathTransform(src, dest);
+      transformToLatLon = CRS.findMathTransform(src, dest, true);
       if (transformToLatLon.isIdentity()) {
         transformToLatLon = null;
       }
